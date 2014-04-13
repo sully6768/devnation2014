@@ -43,8 +43,8 @@
         <module>ds-simple-component</module>
         <module>ds-simple-service</module>
         <module>ds-simple-service-component</module>
-<!--         <module>ds-managed-service</module> -->
-<!--         <module>ds-managed-service-factory</module> -->
+        <module>ds-managed-service</module>
+        <module>ds-managed-service-factory</module>
 <!--         <module>ds-activemqcf-service</module> -->
 <!--         <module>ds-camel-router-components</module> -->
     </modules>
