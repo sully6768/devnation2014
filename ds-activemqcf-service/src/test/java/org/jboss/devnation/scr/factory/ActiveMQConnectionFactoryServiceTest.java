@@ -33,9 +33,6 @@ import org.apache.activemq.security.SimpleAuthenticationPlugin;
 import org.dn.ds.activemq.cf.service.provider.ActiveMQConnectionFactoryService;
 import org.junit.Test;
 
-/**
- * 
- */
 public class ActiveMQConnectionFactoryServiceTest {
 
     @Test

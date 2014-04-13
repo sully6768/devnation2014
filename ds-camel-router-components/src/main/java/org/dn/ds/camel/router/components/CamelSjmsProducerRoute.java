@@ -32,14 +32,18 @@ import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * 
+ */
 @Component(name="CamelSjmsProducerRoute")
 public class CamelSjmsProducerRoute  {
-    
+   
     private static final Logger LOGGER = LoggerFactory.getLogger(CamelSjmsProducerRoute.class);
     
     private DefaultCamelContext context;
     private ConnectionFactory connectionFactory;
 
+    
     @Activate
     public void activate() {
         LOGGER.info("Spinning up the Camel JMS Producer Route");

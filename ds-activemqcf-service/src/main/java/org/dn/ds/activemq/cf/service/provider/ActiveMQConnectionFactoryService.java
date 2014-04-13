@@ -28,6 +28,9 @@ import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.ConfigurationPolicy;
 import org.osgi.service.component.annotations.Deactivate;
 
+/**
+ * 
+ */
 @Component(name="ActiveMQConnectionFactoryService",
            configurationPolicy = ConfigurationPolicy.REQUIRE, 
            servicefactory = true, 

@@ -28,6 +28,9 @@ import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * 
+ */
 @Component(name="CamelSjmsConsumerRoute")
 public class CamelSjmsConsumerRoute  {
     
