@@ -143,7 +143,7 @@
                             *
                         </Import-Package>
                         <Private-Package>${project.artifactId}.provider.*</Private-Package>
-                        <_dsannotations>*</_dsannotations>
+                        <_dsannotations>${project.artifactId}.*</_dsannotations>
                         <_dsannotations-inherit>true</_dsannotations-inherit>
                     </instructions>
                 </configuration>
