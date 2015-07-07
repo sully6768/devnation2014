@@ -17,12 +17,12 @@ scr:list
 
 At the bottom of the list you will see:
 
-[63  ] [UNSATISFIED     ] org.dn.ds.managed.service.provider.ManagedServiceProvider
+[63  ] [UNSATISFIED     ] org.dn.ds.managed.service.provider.MyManagedServiceProvider
 [64  ] [UNSATISFIED     ] org.dn.ds.managed.service.ManagedServiceComponent
 
 Now lets add a configuration:
  
-config:edit org.dn.ds.managed.service.provider.ManagedServiceProvider
+config:edit org.dn.ds.managed.service.provider.MyManagedServiceProvider
 config:propset name Scott
 config:update
 
@@ -30,7 +30,7 @@ In the log file we now see:
 Hello Scott
 
 And when we type scr:list we get:
-[63  ] [ACTIVE          ] org.dn.ds.managed.service.provider.ManagedServiceProvider
+[63  ] [ACTIVE          ] org.dn.ds.managed.service.provider.MyManagedServiceProvider
 [64  ] [ACTIVE          ] org.dn.ds.managed.service.ManagedServiceComponent
 
 Because now both the dependency the service has on a configuration is satisfied and the service dependency the component has is now satisfied.

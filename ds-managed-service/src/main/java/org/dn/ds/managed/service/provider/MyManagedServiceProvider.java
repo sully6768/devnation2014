@@ -17,7 +17,7 @@ package org.dn.ds.managed.service.provider;
 
 import java.util.Map;
 
-import org.dn.ds.managed.service.IManagedService;
+import org.dn.ds.managed.service.MyManagedService;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.ConfigurationPolicy;
@@ -26,8 +26,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Component(configurationPolicy = ConfigurationPolicy.REQUIRE)
-public class ManagedServiceProvider implements IManagedService {
-    private static final Logger LOGGER = LoggerFactory.getLogger(ManagedServiceProvider.class);
+public class MyManagedServiceProvider implements MyManagedService {
+    private static final Logger LOGGER = LoggerFactory.getLogger(MyManagedServiceProvider.class);
 
     private String name;
 

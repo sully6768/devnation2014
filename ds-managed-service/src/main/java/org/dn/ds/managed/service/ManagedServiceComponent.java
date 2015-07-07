@@ -23,25 +23,25 @@ import org.osgi.service.component.annotations.Reference;
 @Component
 public class ManagedServiceComponent {
 
-    private IManagedService iManagedService;
+    private MyManagedService myManagedService;
 
     @Activate
     public void start() {
-        this.iManagedService.sayHello();
+        this.myManagedService.sayHello();
     }
 
     @Deactivate
     public void stop() {
-        this.iManagedService.sayGoodbye();
+        this.myManagedService.sayGoodbye();
     }
 
     @Reference
-    public void setManagedService(IManagedService iManagedService) {
-        this.iManagedService = iManagedService;
+    public void setManagedService(MyManagedService myManagedService) {
+        this.myManagedService = myManagedService;
     }
 
-    public void unsetManagedService(IManagedService iManagedService) {
-        this.iManagedService = null;
+    public void unsetManagedService(MyManagedService myManagedService) {
+        this.myManagedService = null;
     }
 
 }

@@ -17,11 +17,11 @@
 package org.dn.ds.managed.service;
 
 /**
- * TODO Add Class documentation for IManagedService
+ * TODO Add Class documentation for MyManagedService
  *
  * @author sully6768
  */
-public interface IManagedService {
+public interface MyManagedService {
     
     void sayHello();
     
