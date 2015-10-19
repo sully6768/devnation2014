@@ -24,7 +24,9 @@ import org.apache.camel.Processor;
 import org.apache.camel.RuntimeCamelException;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.sjms.SjmsComponent;
+import org.apache.camel.core.osgi.OsgiDefaultCamelContext;
 import org.apache.camel.impl.DefaultCamelContext;
+import org.osgi.framework.FrameworkUtil;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Deactivate;
@@ -36,13 +38,23 @@ import org.slf4j.LoggerFactory;
  * 
  */
 @Component(name="CamelSjmsProducerRoute")
-public class CamelSjmsProducerRoute  {
+public class CamelSjmsProducerRoute extends OsgiDefaultCamelContext {
    
     private static final Logger LOGGER = LoggerFactory.getLogger(CamelSjmsProducerRoute.class);
     
     private DefaultCamelContext context;
     private ConnectionFactory connectionFactory;
 
+    
+    /**
+     * 
+     */
+    public CamelSjmsProducerRoute() {
+        // Remember, this is new if it breaks.
+        super(FrameworkUtil.getBundle(CamelSjmsProducerRoute.class)
+                .getBundleContext());
+        setName("scr-camel-sjms-producer-context");
+    }
     
     @Activate
     public void activate() {

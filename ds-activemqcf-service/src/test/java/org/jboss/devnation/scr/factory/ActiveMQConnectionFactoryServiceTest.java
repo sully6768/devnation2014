@@ -16,6 +16,8 @@
  */
 package org.jboss.devnation.scr.factory;
 
+import static org.junit.Assert.assertNotNull;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,8 +25,6 @@ import java.util.Map;
 
 import javax.jms.Connection;
 import javax.jms.Session;
-
-import static org.junit.Assert.assertNotNull;
 
 import org.apache.activemq.broker.BrokerPlugin;
 import org.apache.activemq.broker.BrokerService;
@@ -54,7 +54,7 @@ public class ActiveMQConnectionFactoryServiceTest {
         map.put("brokerURL", "tcp://127.0.0.1:61616");
         map.put("username", "admin");
         map.put("password", "admin");
-        acfs.start(map);
+        acfs.start(map, null);
         
         Connection conn = acfs.createConnection();
         assertNotNull(conn);

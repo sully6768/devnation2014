@@ -17,10 +17,13 @@ package org.dn.ds.camel.router.components;
 
 import javax.jms.ConnectionFactory;
 
+import org.apache.camel.CamelContext;
 import org.apache.camel.RuntimeCamelException;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.sjms.SjmsComponent;
+import org.apache.camel.core.osgi.OsgiDefaultCamelContext;
 import org.apache.camel.impl.DefaultCamelContext;
+import org.osgi.framework.FrameworkUtil;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Deactivate;
@@ -31,13 +34,27 @@ import org.slf4j.LoggerFactory;
 /**
  * 
  */
-@Component(name="CamelSjmsConsumerRoute")
-public class CamelSjmsConsumerRoute  {
+@Component(name="CamelSjmsConsumerRoute",
+	enabled = true, 
+	immediate = true,
+	service = {CamelContext.class})
+public class CamelSjmsConsumerRoute extends OsgiDefaultCamelContext {
     
     private static final Logger LOGGER = LoggerFactory.getLogger(CamelSjmsConsumerRoute.class);
     
     private DefaultCamelContext context;
     private ConnectionFactory connectionFactory;
+    
+    /**
+     * 
+     */
+    public CamelSjmsConsumerRoute() {
+        // Remember, this is new if it breaks.
+        super(FrameworkUtil.getBundle(CamelSjmsConsumerRoute.class)
+                .getBundleContext());
+        setName("scr-camel-sjms-consumer-context");
+    }
+    
 
     @Activate
     public void activate() throws RuntimeException {
